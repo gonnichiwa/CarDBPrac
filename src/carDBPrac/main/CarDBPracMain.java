@@ -3,6 +3,9 @@ package carDBPrac.main;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import carDBPrac.dao.CarInfo;
+import carDBPrac.dao.CarInfoDAO;
+
 public class CarDBPracMain {
 	public static void main(String[] args) throws Exception {
 		// 메뉴의 번호를 입력받아 지정한 번호 이외 다른 번호를 입력하면

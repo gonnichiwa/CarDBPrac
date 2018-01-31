@@ -1,4 +1,4 @@
-package carDBPrac.main;
+package carDBPrac.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

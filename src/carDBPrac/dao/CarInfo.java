@@ -1,4 +1,4 @@
-package carDBPrac.main;
+package carDBPrac.dao;
 
 public class CarInfo {
 	private int ciNum;
