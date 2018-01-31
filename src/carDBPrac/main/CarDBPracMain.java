@@ -7,6 +7,7 @@ public class CarDBPracMain {
 		// 메뉴의 번호를 입력받아 지정한 번호 이외 다른 번호를 입력하면
 		// "잘못 입력하셨습니다" 출력 후 다시 입력 받게 함
 		Scanner sc = new Scanner(System.in);
+		CarInfoDAO dao = new CarInfoDAO();
 		while(true) {
 			System.out.println("======================");
 			System.out.println("번호를 입력하세요");
