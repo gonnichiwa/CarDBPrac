@@ -21,6 +21,7 @@ public class CarDBPracMain {
 			System.out.println("4. 자동차 정보 삭제");
 			System.out.println("======================");
 			int inputNum = sc.nextInt();
+			
 			if(inputNum == 1) { // 자동차 정보 조회
 				ArrayList<CarInfo> list = dao.getCarInfoList();
 				
@@ -28,7 +29,37 @@ public class CarDBPracMain {
 				for (int i = 0; i < list.size(); i++) {
 					CarInfo ci = list.get(i);
 					System.out.println(ci.toString());
+					
 				}
+				// 자동차 상세 정보 보기 
+				// 상세보기 할 번호가 없으면 잘못 입력하셨습니다
+				while(true) {
+					System.out.println("상세 보기 할 번호를 입력하세요(0번:종료)");
+					int selectNum = sc.nextInt();
+					boolean isCorrect = false;
+					for (int i = 0; i < list.size(); i++) {
+						// 사용자가 선택한 번호가 list의 ciNum과 일치 할 경우
+						if(selectNum == list.get(i).getCiNum()) {
+							// TODO: 해당 번호의 자동차 상세 정보 보기
+							System.out.println("제대로 잘 입력했네요");
+							System.out.println("입력한 번호 : " + selectNum);
+							isCorrect = true;
+							break;
+						}
+					}
+					
+					// 종료코드:0
+					if(selectNum == 0) {
+						System.out.println("종료 하겠습니다.");
+						break;
+					}
+					
+					if(isCorrect == false) {
+						System.out.println("잘못 입력하셨습니다.");
+					}
+					
+				}
+				
 				break;
 			} else if(inputNum == 2) { // 자동차 정보 입력
 

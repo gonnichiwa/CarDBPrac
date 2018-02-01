@@ -6,7 +6,7 @@ public class CarInfo {
 	private String ciMaker;
 	private int ciPrice;
 	
-	protected int getCiNum() {
+	public int getCiNum() {
 		return ciNum;
 	}
 	protected void setCiNum(int ciNum) {
