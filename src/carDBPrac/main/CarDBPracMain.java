@@ -33,16 +33,22 @@ public class CarDBPracMain {
 				}
 				// 자동차 상세 정보 보기 
 				// 상세보기 할 번호가 없으면 잘못 입력하셨습니다
+				// 0번을 입력하면 종료
 				while(true) {
 					System.out.println("상세 보기 할 번호를 입력하세요(0번:종료)");
 					int selectNum = sc.nextInt();
-					boolean isCorrect = false;
+					boolean isCorrect = false; // 사용자가 입력한 값이 DB ciNum List에
+											   // 포함되면 true로 돌릴려고
 					for (int i = 0; i < list.size(); i++) {
 						// 사용자가 선택한 번호가 list의 ciNum과 일치 할 경우
 						if(selectNum == list.get(i).getCiNum()) {
 							// TODO: 해당 번호의 자동차 상세 정보 보기
 							System.out.println("제대로 잘 입력했네요");
 							System.out.println("입력한 번호 : " + selectNum);
+							/* 자동차의 상세 정보를 보여준다. */
+							
+							
+							
 							isCorrect = true;
 							break;
 						}
