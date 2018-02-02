@@ -3,6 +3,7 @@ package carDBPrac.main;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import carDBPrac.dao.CarDetail;
 import carDBPrac.dao.CarInfo;
 import carDBPrac.dao.CarInfoDAO;
 
@@ -29,7 +30,6 @@ public class CarDBPracMain {
 				for (int i = 0; i < list.size(); i++) {
 					CarInfo ci = list.get(i);
 					System.out.println(ci.toString());
-					
 				}
 				// 자동차 상세 정보 보기 
 				// 상세보기 할 번호가 없으면 잘못 입력하셨습니다
@@ -46,8 +46,9 @@ public class CarDBPracMain {
 							System.out.println("제대로 잘 입력했네요");
 							System.out.println("입력한 번호 : " + selectNum);
 							/* 자동차의 상세 정보를 보여준다. */
-							
-							
+							CarDetail cd = dao.getCarDetailInfo(selectNum);
+							System.out.println(selectNum+"data 상세정보");
+							System.out.println(cd.toString());
 							
 							isCorrect = true;
 							break;
