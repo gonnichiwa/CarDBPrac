@@ -1,6 +1,7 @@
 /*
  * CarInfoDDL.sql : DDL,DML 다 포함된 sql파일. 이름 잘 못정했당.. ㅜㅜ
  * */
+drop table carInfo;
 
 create table carInfo (
 	ciNum int primary key, -- 정보번호
@@ -29,10 +30,10 @@ values (seq_carInfo_ciNum.nextval,'그랜저','현대',5000,'검은색',550,200)
 -- carInfo 테이블의 전체 자료 조회
 select * from carInfo;
 
-drop table carInfo;
-
 -- ciNum이 5인 carInfo 칼럼 모두를 조회 하시오 (where절)
-select * from carInfo where ciNum = 5;
+select * from carInfo where ciNum = 22;
+commit;
+
 
 
 
