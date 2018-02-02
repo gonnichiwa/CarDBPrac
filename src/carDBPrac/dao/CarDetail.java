@@ -9,7 +9,19 @@ public class CarDetail {
 	private int ciWidth;
 	private int ciHeight;
 	
-	protected int getCiNum() {
+	public CarDetail() {} // CarDetail 인스턴스 호출용, 그러니까 CarDetail cd = new CarDetail(); 이렇게 쓸려고
+	public CarDetail(String cName, String cMaker, int cPrice, String cColor, int cWidth, int cHeight) {
+		this.ciName = cName;
+		this.ciMaker = cMaker;
+		this.ciPrice = cPrice;
+		this.ciColor = cColor;
+		this.ciWidth = cWidth;
+		this.ciHeight = cHeight;
+	}
+	
+	
+	
+	public int getCiNum() {
 		return ciNum;
 	}
 	protected void setCiNum(int ciNum) {
