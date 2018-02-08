@@ -3,9 +3,24 @@ package carDBPrac.dao;
 public class CarInfo {
 	private int ciNum;
 	private String ciName;
+	private String mNameKor;
 	private String ciMaker;
+	private String cNameKor;
 	private int ciPrice;
 	
+	protected String getmNameKor() {
+		return mNameKor;
+	}
+	protected void setmNameKor(String mNameKor) {
+		this.mNameKor = mNameKor;
+	}
+	
+	protected String getcNameKor() {
+		return cNameKor;
+	}
+	protected void setcNameKor(String cNameKor) {
+		this.cNameKor = cNameKor;
+	}
 	public int getCiNum() {
 		return ciNum;
 	}
@@ -34,7 +49,11 @@ public class CarInfo {
 	
 	@Override
 	public String toString() {
-		return this.ciNum +","+ this.ciName +","+ this.ciMaker +","+ this.ciPrice;
+		return this.ciNum +","
+				+ this.ciName +","
+				+ this.mNameKor +","
+				+ this.ciPrice +","
+				+ this.cNameKor;
 	}
 	
 	

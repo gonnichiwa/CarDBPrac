@@ -3,14 +3,37 @@ package carDBPrac.dao;
 public class CarDetail {
 	private int ciNum;
 	private String ciName;
-	private String ciMaker;
+	private int ciMaker;
+	private String ciMakerEng;
+	private String ciMakerKor;
 	private int ciPrice;
-	private String ciColor;
+	private int ciColor;
+	private String ciColorNameKor;
+	private String ciColorNameEng;
+	private String ciColorNameRgb;
 	private int ciWidth;
 	private int ciHeight;
 	
 	public CarDetail() {} // CarDetail 인스턴스 호출용, 그러니까 CarDetail cd = new CarDetail(); 이렇게 쓸려고
-	public CarDetail(String cName, String cMaker, int cPrice, String cColor, int cWidth, int cHeight) {
+	
+	// select 할 때 상세 정보를 보기 위해서 사용하는 생성자
+	public CarDetail(String cName, String ciMakerEng, 
+			String ciMakerKor, int cPrice, 
+			String ciColorNameKor, String ciColorNameEng, String ciColorNameRgb,
+			int cWidth, int cHeight) {
+		this.ciName = cName;
+		this.ciMakerEng = ciMakerEng;
+		this.ciMakerKor = ciMakerKor;
+		this.ciPrice = cPrice;
+		this.ciColorNameKor = ciColorNameKor;
+		this.ciColorNameEng = ciColorNameEng;
+		this.ciColorNameRgb = ciColorNameRgb;
+		this.ciWidth = cWidth;
+		this.ciHeight = cHeight;
+	}
+	
+	// carInfo 테이블에 입력 받을 때 쓰는 생성자 
+	public CarDetail(String cName, int cMaker, int cPrice, int cColor, int cWidth, int cHeight) {
 		this.ciName = cName;
 		this.ciMaker = cMaker;
 		this.ciPrice = cPrice;
@@ -19,8 +42,18 @@ public class CarDetail {
 		this.ciHeight = cHeight;
 	}
 	
-	
-	
+	protected int getCiMaker() {
+		return ciMaker;
+	}
+	protected void setCiMaker(int ciMaker) {
+		this.ciMaker = ciMaker;
+	}
+	protected int getCiColor() {
+		return ciColor;
+	}
+	protected void setCiColor(int ciColor) {
+		this.ciColor = ciColor;
+	}
 	public int getCiNum() {
 		return ciNum;
 	}
@@ -33,11 +66,17 @@ public class CarDetail {
 	protected void setCiName(String ciName) {
 		this.ciName = ciName;
 	}
-	protected String getCiMaker() {
-		return ciMaker;
+	protected String getCiMakerEng() {
+		return ciMakerEng;
 	}
-	protected void setCiMaker(String ciMaker) {
-		this.ciMaker = ciMaker;
+	protected void setCiMakerEng(String ciMakerEng) {
+		this.ciMakerEng = ciMakerEng;
+	}
+	protected String getCiMakerKor() {
+		return ciMakerKor;
+	}
+	protected void setCiMakerKor(String ciMakerKor) {
+		this.ciMakerKor = ciMakerKor;
 	}
 	protected int getCiPrice() {
 		return ciPrice;
@@ -45,11 +84,23 @@ public class CarDetail {
 	protected void setCiPrice(int ciPrice) {
 		this.ciPrice = ciPrice;
 	}
-	protected String getCiColor() {
-		return ciColor;
+	protected String getCiColorNameKor() {
+		return ciColorNameKor;
 	}
-	protected void setCiColor(String ciColor) {
-		this.ciColor = ciColor;
+	protected void setCiColorNameKor(String ciColorNameKor) {
+		this.ciColorNameKor = ciColorNameKor;
+	}
+	protected String getCiColorNameEng() {
+		return ciColorNameEng;
+	}
+	protected void setCiColorNameEng(String ciColorNameEng) {
+		this.ciColorNameEng = ciColorNameEng;
+	}
+	protected String getCiColorNameRgb() {
+		return ciColorNameRgb;
+	}
+	protected void setCiColorNameRgb(String ciColorNameRgb) {
+		this.ciColorNameRgb = ciColorNameRgb;
 	}
 	protected int getCiWidth() {
 		return ciWidth;
@@ -63,16 +114,17 @@ public class CarDetail {
 	protected void setCiHeight(int ciHeight) {
 		this.ciHeight = ciHeight;
 	}
-	// getter()setter()는 protected 처리하고
-	
 	// toString() 메소드 오버라이드해서
 	@Override
 	public String toString() {
 		return this.ciNum + "," 
 				+ this.ciName + ","
-				+ this.ciMaker + ","
+				+ this.ciMakerEng + ","
+				+ this.ciMakerKor + ","
 				+ this.ciPrice + ","
-				+ this.ciColor + ","
+				+ this.ciColorNameEng + ","
+				+ this.ciColorNameKor + ","
+				+ this.ciColorNameRgb + ","
 				+ this.ciWidth + ","
 				+ this.ciHeight;
 	}

@@ -78,14 +78,14 @@ public class CarDBPracMain {
 					System.out.println(cd.toString());
 				}
 				
-				System.out.println("(1:새data입력)(2:종료)");
+				System.out.println("(1:새data입력)(0:종료)");
 				int selectNum = sc.nextInt();
 				if(selectNum == 1) {
 					// 사용자가 입력 받는 데이터들..
 					System.out.println("차명을 입력하세요:"); String cName = scStr.nextLine();
-					System.out.println("제조사를 입력하세요:"); String cMaker = scStr.nextLine();
+					System.out.println("제조사를 입력하세요:"); int cMaker = scStr.nextInt();
 					System.out.println("가격을 입력하세요:"); int cPrice = sc.nextInt();
-					System.out.println("색상을 입력하세요:"); String cColor = scStr.nextLine();
+					System.out.println("색상을 입력하세요:"); int cColor = scStr.nextInt();
 					System.out.println("폭을 입력하세요:"); int cWidth = sc.nextInt();
 					System.out.println("길이를 입력하세요:"); int cHeight = sc.nextInt(); 
 					CarDetail carDetailData = 
@@ -109,9 +109,9 @@ public class CarDBPracMain {
 				if(isValidNum(selectNum,list)) {
 					// 사용자가 입력 받는 데이터들..
 					System.out.println("차명을 입력하세요:"); String cName = scStr.nextLine();
-					System.out.println("제조사를 입력하세요:"); String cMaker = scStr.nextLine();
+					System.out.println("제조사를 입력하세요:"); int cMaker = scStr.nextInt();
 					System.out.println("가격을 입력하세요:"); int cPrice = sc.nextInt();
-					System.out.println("색상을 입력하세요:"); String cColor = scStr.nextLine();
+					System.out.println("색상을 입력하세요:"); int cColor = scStr.nextInt();
 					System.out.println("폭을 입력하세요:"); int cWidth = sc.nextInt();
 					System.out.println("길이를 입력하세요:"); int cHeight = sc.nextInt(); 
 					CarDetail carDetailData = 
@@ -124,7 +124,23 @@ public class CarDBPracMain {
 				}
 				break;
 			} else if(inputNum == 4) { // 자동차 정보 삭제
-				
+				/* *** 모든 자동차 상세정보 불러와서 콘솔에 뿌리기 *** */
+				/* 자동차 상세 정보 다 불러와서 뿌리기 */
+				// db에 접속해서 데이터들 다 가져오기
+				ArrayList<CarDetail> list = dao.getCarInfoDetailList();
+				// 가져온 데이터 다 콘솔로 뿌리기
+				for (int i = 0; i < list.size(); i++) {
+					CarDetail cd = list.get(i);
+					System.out.println(cd.toString());
+				}
+				System.out.println("(선택번호:해당 내용 삭제)(0:종료)");
+				int selectNum = sc.nextInt(); // 사용자가 선택번호를 입력
+				if(isValidNum(selectNum,list)) {
+					dao.deleteCarDetail(selectNum);// insert가 아니라 delete시켜주면 됨
+					System.out.println("삭제완료");
+				} else {
+					System.out.println("해당 번호 없음. 종료합니다.");
+				}
 				break;
 			} else { // 다른 번호 입력했을 때
 				System.out.println("다시 입력 해 주세요");
