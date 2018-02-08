@@ -34,6 +34,23 @@ select * from carInfo;
 select * from carInfo where ciNum = 22;
 commit;
 
+/* data insert test */
+insert into carInfo(ciNum,ciName,ciMaker,ciPrice,ciColor,ciWidth,ciHeight) 
+values (seq_carInfo_ciNum.nextval,'car1','marker1',5000,'color',750,800);
+
+select * from carInfo;
+rollback;
+
+/* *** data update test *** */
+-- 기존 데이터와 다르게 (but 타입은 맞춰서) 세팅 해서 테스트 해 본다.
+update carInfo
+set ciname='스팅어',cimaker='기아',ciprice=3300,cicolor='빨간색',ciwidth=485,ciheight=165
+where ciNum = 22;
+
+
+
+
+
 
 
 
